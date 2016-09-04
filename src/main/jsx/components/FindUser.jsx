@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { findUser } from '../actions/user-actions'
 import ShowResults from './ShowResults'
 
-let FindUser = ({ dispatch}) => {
+let FindUser = ({ dispatch,loading}) => {
     let searchTerm
     return (
         <div>
@@ -22,12 +22,16 @@ let FindUser = ({ dispatch}) => {
 
             }}>
                 <label>User Search:</label>
-                <input className={"user"} type="text" pattern="[a-zA-Z]*" ref={node => {
+                <input className={"user"} type="text" pattern="[a-zA-Z]*" placeholder="User name" ref={node => {
                         searchTerm = node}} />
                 <div className={"marginTop"}>
                 <button type="submit" className={"user"}>
                     Find User
                 </button>
+                    {loading==true
+                        ?<span>.....................finding</span>
+                        :<span></span>
+                    }
                 </div>
             </form>
             <ShowResults/>
@@ -35,6 +39,12 @@ let FindUser = ({ dispatch}) => {
     )
 }
 
-FindUser = connect()(FindUser)
+const mapStateToProps = (state) => {
+    return {
+        loading: state.findUserReducer.isFinding
+    }
+}
+
+FindUser = connect(mapStateToProps)(FindUser)
 
 export default FindUser

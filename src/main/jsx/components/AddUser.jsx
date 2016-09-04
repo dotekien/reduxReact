@@ -6,7 +6,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addUser } from '../actions/user-actions'
 
-let AddUser = ({ dispatch }) => {
+let AddUser = ({ dispatch,loading,success }) => {
     let name, age
     
     return (
@@ -34,12 +34,22 @@ let AddUser = ({ dispatch }) => {
                 <button type="submit" className={"user"}>
                     Add User
                 </button>
+                    {loading==true
+                        ?<span>...saving</span>
+                        :success==true?<span><i>Saved.</i></span>:<span></span>
+                    }
                 </div>
             </form>
         </div>
     )
 }
 
-AddUser = connect()(AddUser)
+const mapStateToProps = (state) => {
+    return {
+        loading: state.saveUserReducer.isSaving,
+        success: state.saveUserReducer.success
+    }
+}
+AddUser = connect(mapStateToProps)(AddUser)
 
 export default AddUser

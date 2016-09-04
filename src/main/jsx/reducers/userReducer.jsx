@@ -23,7 +23,7 @@ export const saveUserReducer = (state=initialState, action) => {
         case types.ADD_USERS_RECEIVE:
             return Object.assign({}, state, {
                 user: action.user,
-                success: action.value,
+                success: action.success,
                 isSaving: false
             })
         default:

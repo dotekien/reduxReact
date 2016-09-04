@@ -10,7 +10,7 @@ let _ShowResults = ({results, userName}) => {
     else
     return (
         <div>
-            <h5>Search result for user name <b>{userName}</b>:</h5>
+            <h5>Search results for user <b>{userName}</b>:</h5>
             {results.length!=0
             ?<ul>
                 {results.map(user => <li>{user.name} - {user.age} </li>)}
