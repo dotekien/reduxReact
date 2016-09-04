@@ -21,3 +21,9 @@ In a terminal at the `ui-starter` directory, this will have webpack rebuild on a
 With the above ^ service running, use a browser to access:
 
     http://localhost:9000
+    
+## Add user
+Click on the Add User tab
+
+## Find user
+Click on the Find User tab
