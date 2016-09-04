@@ -1,0 +1,16 @@
+.active {
+  color: #555;
+}
+
+.navLogoImage {
+  max-width: 100%;
+}
+
+.user {
+  width: 200px;
+  height: 38px;
+}
+
+.marginTop {
+  margin-top: 20px;
+}
